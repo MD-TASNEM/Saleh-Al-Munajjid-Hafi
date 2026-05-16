@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>শায়খ সালেহ আল-মুনাজ্জিদ (হাফি.) - গ্রন্থ ও প্রবন্ধ সম্ভার</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-deep: #0b3b2f;
+            --primary-soft: #1e5a48;
+            --gold-accent: #d4af7a;
+            --gold-light: #f2e2c6;
+            --paper-bg: #fefaf5;
+            --card-white: #ffffff;
+            --text-dark: #2c2b28;
+            --text-muted: #5e5b56;
+            --shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 32px rgba(0, 0, 0, 0.1);
+            --border-radius-card: 28px;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f4f0e7 0%, #e9e3d9 100%);
+            font-family: 'Segoe UI', 'Tahoma', 'Noto Sans Bengali', 'Roboto', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ornamental background pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-image: radial-gradient(#c5a88015 1.2px, transparent 1.2px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* header section */
+        header {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-soft) 100%);
+            color: white;
+            padding: 3.5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            border-bottom: 3px solid var(--gold-accent);
+            text-align: center;
+        }
+
+        header::after {
+            content: "﷽";
+            font-family: 'Segoe UI', 'Noto Sans Arabic', system-ui;
+            font-size: 90px;
+            opacity: 0.05;
+            position: absolute;
+            left: 20px;
+            bottom: -10px;
+            pointer-events: none;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(120deg, #fff, var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 0.5rem;
+        }
+
+        .arabic-title {
+            font-size: 1.3rem;
+            font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+            color: var(--gold-accent);
+            margin-top: 6px;
+            opacity: 0.9;
+            direction: rtl;
+        }
+
+        header p {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            color: #e4dfd3;
+            font-weight: 400;
+            border-top: 1px dashed rgba(255,255,240,0.2);
+            display: inline-block;
+            padding-top: 12px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 24px;
+        }
+
+        /* main card */
+        .master-card {
+            background: var(--card-white);
+            border-radius: var(--border-radius-card);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #f0e4d0;
+            text-align: center;
+        }
+
+        .master-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-inner {
+            padding: 3rem 2rem;
+        }
+
+        /* icon area */
+        .icon-gold {
+            background: var(--gold-light);
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 1.2rem auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            box-shadow: inset 0 0 0 3px white, 0 8px 18px rgba(0,0,0,0.05);
+            color: #b5651e;
+        }
+
+        .file-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-deep);
+            background: #fef4e8;
+            display: inline-block;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            margin: 1rem 0 0.5rem 0;
+            border: 1px solid #ecdbba;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.2rem 0 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .meta-info span {
+            background: #f3efea;
+            padding: 6px 16px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .btn {
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            padding: 0.9rem 2.2rem;
+            font-size: 1rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .btn-download {
+            background-color: var(--primary-soft);
+            color: white;
+            border: 1px solid #2d6b58;
+        }
+
+        .btn-download:hover {
+            background-color: #0f4235;
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(11, 59, 47, 0.2);
+        }
+
+        .btn-preview {
+            background-color: #fef7ef;
+            color: #7a5a3a;
+            border: 1px solid #e0cfbc;
+        }
+
+        .btn-preview:hover {
+            background-color: #f7ede2;
+            border-color: var(--gold-accent);
+            color: var(--primary-deep);
+            transform: scale(1.02);
+        }
+
+        /* preview panel */
+        .preview-panel {
+            margin-top: 2.5rem;
+            border-radius: 24px;
+            background: var(--card-white);
+            overflow: hidden;
+            border: 1px solid #ece2d4;
+            box-shadow: var(--shadow-sm);
+            display: none;
+        }
+
+        .preview-panel.show-preview {
+            display: block;
+            animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .preview-header {
+            background: #f3ede5;
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-deep);
+            border-bottom: 1px solid #e2d5c4;
+        }
+
+        .close-preview {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #8b6f4c;
+            transition: 0.2s;
+            line-height: 1;
+        }
+
+        .close-preview:hover {
+            color: #c0392b;
+            transform: scale(1.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            display: block;
+            background: #fef9f2;
+        }
+
+        /* footer section */
+        footer {
+            background: #e4dacb60;
+            margin-top: 5rem;
+            padding: 2.5rem 1.5rem;
+            font-size: 0.9rem;
+            color: #4f4a42;
+            border-top: 1px solid #e2d5c4;
+            backdrop-filter: blur(2px);
+            text-align: center;
+        }
+
+        .dua-text {
+            font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+            font-size: 1.4rem;
+            color: #2c5a48;
+            margin-bottom: 10px;
+            direction: rtl;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 680px) {
+            .card-inner {
+                padding: 2rem 1.2rem;
+            }
+            .file-name {
+                font-size: 1.2rem;
+                padding: 0.4rem 1.2rem;
+            }
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
+            }
+            iframe {
+                height: 480px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .arabic-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>শায়খ সালেহ আল-মুনাজ্জিদ (হাফি.)</h1>
+    <div class="arabic-title">الشيخ محمد صالح المنجد</div>
+    <p>প্রামাণ্য ইসলামি জ্ঞানবীক্ষা | ফতোয়া, প্রবন্ধ ও গ্রন্থ সমগ্র</p>
+</header>
+
+
+
+<body>
+    
+<div>
+
+<iframe src="shaikh_munajjid.pdf" frameborder="0"></iframe>
+
+</div>
+
+
+
+
+</body>
+
+
+
+
+ 
+
+<footer>
+    <div class="dua-text">رَبِّ زِدْنِي عِلْمًا</div>
+    <p style="margin-top: 8px; font-weight: 500;">দ্বীনি জ্ঞান প্রচারে আমাদের সহযোগিতা করুন — বিনামূল্যে ইসলামিক লাইব্রেরি</p>
+    <p style="margin-top: 6px; opacity: 0.8;">© শায়খ সালেহ আল-মুনাজ্জিদ (হাফি.) | বাংলা অনুবাদ সংগ্রহ</p>
+</footer>
+
+<script>
+    (function() {
+        const previewPanel = document.getElementById('previewPanel');
+        const toggleBtn = document.getElementById('previewToggleBtn');
+        const closeBtn = document.getElementById('closePreviewBtn');
+        const iframe = document.getElementById('pdfIframe');
+
+        function openPreview() {
+            previewPanel.classList.add('show-preview');
+            setTimeout(() => {
+                previewPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function closePreview() {
+            previewPanel.classList.remove('show-preview');
+        }
+
+        function togglePreview() {
+            const isVisible = previewPanel.classList.contains('show-preview');
+            if (isVisible) {
+                closePreview();
+            } else {
+                openPreview();
+            }
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', togglePreview);
+        if (closeBtn) closeBtn.addEventListener('click', closePreview);
+
+        iframe.addEventListener('error', function() {
+            console.warn("PDF iframe লোড করতে সমস্যা হতে পারে, তবে ডাউনলোড অপশন সক্রিয় আছে।");
+        });
+    })();
+</script>
+
+</body>
+</html>
